@@ -1,5 +1,19 @@
 ![ESP32C3-1 44-01-250](https://github.com/jblance/ESP32C3_1.44inch/assets/1266998/493165fc-655c-428d-be0b-3ff0d213c4b2)
 
+
+# Overview
+- ESP32 C3 desktop trinket Mini TV Portable Pendant LVGL 1.44inch LCD ST7735
+- Part Number： ESP32C3-1.44
+- Brand： Spotpear
+- SKU： 0601026
+## Features
+- Power supply: 5V
+- Display driver interface: SPI
+- Screen driver IC: ST7735S
+- Screen resolution: 128×128
+- Compatible battery type: 3.7V lithium battery with 1.27mm plug
+- Main control: ESP32 C3 with WiFi and Bluetooth capability.
+
 # Links
 - [orginal document](https://spotpear.com/index/study/detail/id/1121.html?spm=a2g0o.detail.1000023.1.40cbUudqUudq6A)
 - [schematic diagram](https://cdn.static.spotpear.com/uploads/picture/product/esp32/ESP32C3-1.44/Schematic/ESP32-C3-1.44inch.pdf)
