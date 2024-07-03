@@ -1,87 +1,82 @@
-//屏幕驱动库
+//Screen driver library
 #include <TFT_eSPI.h>
-//spi驱动库
+//spi driver library
 #include <SPI.h>
-//图片解码库
+//Image decoding library
 #include <TJpg_Decoder.h>
-//json库,用于网页解析
+//json library for web page parsing
 #include "ArduinoJson.h"
-//时间库,用于时钟部分
+//Time library, used for clock part
 #include <TimeLib.h>
-//wifi库
+//Wifi Library
 #include <WiFi.h>
-//http请求库
+//http request library
 #include <HTTPClient.h>
-//创建wifi的udp服务的库
+//Library for creating UDP services for WiFi
 #include <WiFiUdp.h>
-//静态存储区,用于存储一些固定参数
+//Static storage area, used to store some fixed parameters
  #include <EEPROM.h>
 
 #include <Arduino.h>
 #include "lvgl.h"
-//天气图标
+//Weather Icons
 #include "weathernum.h"
 
-//温湿度图标
+//Temperature and humidity icons
 #include "img/temperature.h"
 #include "img/humidity.h"
 
-//字体文件用于时钟显示
+//Font file for clock display
 #include "font/FxLED_32.h"
-//字体文件用于星期和日月,粉丝数显示
+//Font files are used for displaying the week, date, month, and number of fans
 #include "font/zkyyt12.h"
-//字体文件用于城市名字显示
+//Font file used to display city names
 #include "font/city10.h"
-//字体文件用于天气显示
+//Font file for weather display
 #include "font/tq10.h"
 //#include "font/AAA.h"
 #include "font/ALBB10.h"
 
 
-//此处添加WIFI信息或者个人热点WLAN信息
-const char *ssid     = "apo";  //Wifi名字 
-const char *password = "1234567890"; //Wifi密码 
+//Add WIFI information or personal hotspot WLAN information here
+const char *ssid     = "spotpear";  //Wifi Name
+const char *password = "1234567890"; //Wifi password
 
-// const char *ssid     = "spotpear";  //Wifi名字 
-// const char *password = "12345678"; //Wifi密码 
-
-
-
-WeatherNum  wrat; //天气对象
+WeatherNum  wrat; //Weather Object
 int prevTime = 0;
 int AprevTime = 0;
 int Anim = 0;
 uint32_t targetTime = 0;
 
 
-//背景颜色
+//background color
 uint16_t bgColor =0x0000 ;
 
-//字体颜色
+//font color
 
-//时间小时分钟字体颜色
+//Time Hour Minute Font Color
 uint16_t timehmfontColor =0xFFFF ;
-//时间秒字体颜色
+//Time seconds font color
 uint16_t timesfontColor =0xFFFF ;
-//星期字体颜色
+//Day of the week font color
 uint16_t weekfontColor =0xFFFF ;
-//日月字体颜色
+//Month font color
 uint16_t monthfontColor =0xFFFF ;
-//温湿度字体颜色
+//Temperature and humidity font color
 uint16_t thfontColor =0xFFFF ;
-//左上角轮播字体颜色
+//Upper left corner carousel font color
 uint16_t tipfontColor =0xFFFF ;
-//城市名称字体颜色
+//City name font color
 uint16_t cityfontColor =0xFFFF ;
-//空气质量字体颜色
+//Air quality font color
 uint16_t airfontColor =0xFFFF ;
-//b站粉丝数字体颜色
+//B station fans digital color
 uint16_t bilifontColor =0xF81F ;
 
 
 
 
-//线框颜色
+//Wireframe Color
 
 uint16_t  xkColor= 0xFFFF;
 
@@ -95,14 +90,14 @@ static lv_color_t buf[screenHeight * screenWidth / 10];
 
 
 
-//时钟部分参数---------------------------------
-//NTP服务器
-static const char ntpServerName[] = "time.nist.gov"; //NTP服务器
-float timeZone;     //时区
+//Clock parameters---------------------------------
+//NTP Server
+static const char ntpServerName[] = "time.nist.gov";
+float timeZone;
 
 
 
-static String cityCode = "";  //如果需要改为 手动添加城市信息 则在""内填写城市的名字，然后将第218行代码注释掉即可
+static String cityCode = "";  //If you need to manually add city information, fill in the name of the city in "", and then comment out line 213 of the code.
 char* api_key = "fbf5a0e942e6fea3ff18103b9fd46ed9"; //API 密钥
 
 
@@ -262,10 +257,10 @@ void getCityWeater(){
 
 
   int httpCode = httpClient.GET();
-  Serial.println("正在获取天气数据");
+  Serial.println("Getting weather data");
   Serial.println(URL);
 
-  //如果服务器响应OK则从服务器获取响应体信息并通过串口输出
+  //If the server responds OK, get the response body information from the server and output it through the serial port
   if (httpCode == HTTP_CODE_OK) {
 
     const size_t capacity = JSON_OBJECT_SIZE(2) + JSON_OBJECT_SIZE(5) + JSON_OBJECT_SIZE(6) + JSON_OBJECT_SIZE(13) + JSON_OBJECT_SIZE(40) + 470;
