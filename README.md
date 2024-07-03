@@ -1,9 +1,9 @@
 ![ESP32C3-1 44-01-250](https://github.com/jblance/ESP32C3_1.44inch/assets/1266998/493165fc-655c-428d-be0b-3ff0d213c4b2)
 
 # Links
-[orginal document](https://spotpear.com/index/study/detail/id/1121.html?spm=a2g0o.detail.1000023.1.40cbUudqUudq6A)
-[schematic diagram](https://cdn.static.spotpear.com/uploads/picture/product/esp32/ESP32C3-1.44/Schematic/ESP32-C3-1.44inch.pdf)
-[original code repo](https://github.com/Spotpear/ESP32C3_1.44inch)
+- [orginal document](https://spotpear.com/index/study/detail/id/1121.html?spm=a2g0o.detail.1000023.1.40cbUudqUudq6A)
+- [schematic diagram](https://cdn.static.spotpear.com/uploads/picture/product/esp32/ESP32C3-1.44/Schematic/ESP32-C3-1.44inch.pdf)
+- [original code repo](https://github.com/Spotpear/ESP32C3_1.44inch)
 
 # Dev Environment
 - [Build Dev Environment](https://www.spotpear.com/index.php/index/study/detail/id/992.html)
