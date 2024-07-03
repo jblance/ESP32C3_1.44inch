@@ -6,7 +6,7 @@
 - [original code repo](https://github.com/Spotpear/ESP32C3_1.44inch)
 
 # Dev Environment
-- [Build Dev Environment](https://www.spotpear.com/index.php/index/study/detail/id/992.html)
+- Build the dev environment [instructions](https://www.spotpear.com/index.php/index/study/detail/id/992.html)
 - Third party library file configuration:
   - Enter the mainapp project, change to your own WIFI name and password within
   - Adjust dev environment configuration parameters ![parameters](https://github.com/jblance/ESP32C3_1.44inch/assets/1266998/07dbf861-c322-45f4-bb34-e12ba6668b6d)
